@@ -441,7 +441,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       var orderId = $(this).data('order_id');
       var products = [];
 
-      $('input[name^="missed_qty_"]').each(function() {
+      $('.missed_qty_'+orderId).each(function() {
         var id = $(this).attr('name').replace('missed_qty_', '');
         var missedQty = $(this).val();
         var isReceived = $('#is_received_' + id).is(':checked') ? 'Yes' : 'No';
