@@ -281,7 +281,7 @@ function getAllOrdersByCategory($post)
                         <td>' . ($detail['product_name'] ?? '') . '</td>
                         <td>' . ($detail['avialable'] ?? '') . '</td>
                         <td>' . ($detail['quantity'] ?? '') . '</td>
-                        <td><input name="missed_qty_' . $detail['id'] . '" id="missed_qty_' . $detail['id'] . '" type="number" value="' . ($detail['missed_qty'] ?? '0') . '" ' . ($_SESSION['user_role'] == 'admin' ? 'disabled' : '0') . ' ></td>
+                        <td><input class="missed_qty_' . $row['id'] . '" name="missed_qty_' . $detail['id'] . '" id="missed_qty_' . $detail['id'] . '" type="number" value="' . ($detail['missed_qty'] ?? '0') . '" ' . ($_SESSION['user_role'] == 'admin' ? 'disabled' : '0') . ' ></td>
                         <td><input name="is_received_' . $detail['id'] . '" id="is_received_' . $detail['id'] . '" type="checkbox" class="product-checkboxes form-check-input" ' . (($detail['is_received'] == 'Yes') ? 'checked' : '') . ' style="padding: 12px;" ' . ($_SESSION['user_role'] == 'admin' ? 'disabled' : '0') . '></td>
                     </tr>';
                 }
@@ -416,7 +416,7 @@ function orderQtychange($db, $post)
 
         $totalMissedQty += $missedQty;
 
-        if ($isReceived === 'No') {
+        if ($isReceived == 'No') {
             $isAnyProductNotReceived = true;
         }
     }
