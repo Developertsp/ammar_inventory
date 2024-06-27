@@ -1,6 +1,6 @@
 <?php 
 try {
-    $db = mysqli_connect('localhost', 'techsolutionspro_3','*P+!o*g_EOs~', 'techsolutionspro_3');
+    $db = mysqli_connect('localhost', 'root','', 'inventory_db');
     
     if ($db) {
         // echo("Database connection Created: ");
